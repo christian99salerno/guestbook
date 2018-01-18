@@ -1,39 +1,38 @@
-<% include header %>
+<!doctype html>
 
-<div class="container mb-1">
+<html>
 
-<img src="/img/1.jpg" class="img-fluid" alt="Responsive image">
+<head><title></title></head>
 
-<div class="row">
-<div class="col-6">
+<body>
 
-<!--login-->
+<a href="/comment">Comment</a>
 
-<form action="login.php" method="post">
+</br>
+</br>
+</br>
 
-<div class="form-group">
 
- <label for="email">Email</label>
- <input type="email" class="form-control" id="email" placeholder="E-mail" name="email">
+<% commenti.forEach( function(commento) { %>
 
-</div>
+<div class="card">
+ <div class="card-header">
+  <%= commento.title %>
+ </div>
+ <div class="card-body">
+  <p class="card-text"><%= commento.body %></p>
+ </div>
+ <div class="card-footer text-muter">
+  <p class="card-text"><%= commento.date %></p>
+ </div>
 
-<div class="form-group">
+<% }); %>
 
-<label for="password">Password</label>
-<input type="password" class="form-control" id="password" placeholder="Password" name="password">
 
-</div>
+</body>
 
-<!--submit-->
 
-<input type="submit" class="btn btn-primary btn-block" nome="accedi" id="Login" value="Login">
+</html>
 
-</form>
 
-</div>
 
-</div>
-</div>
-
-<% include footer %>

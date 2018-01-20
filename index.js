@@ -30,8 +30,6 @@ const commenti = [
 }
 ];
 
-app.use(bodyParser.urlencoded({extended:false}));
-
 app.use( morgan('dev') );
 
 app.use( '/js', express.static(path.resolve(__dirname, 'js')));
@@ -40,6 +38,8 @@ app.use( '/img', express.static(path.resolve(__dirname, 'img')));
 
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(bodyParser.urlencoded({extended:false}));
 
 app.get('/', function (req, res) {   
   res.render('index', {commenti: commenti});

@@ -23,12 +23,7 @@ const app = express ();
 //next();
 //});
 
-const commenti = [
-{title:"Ciao",
- body:"come stai?",
- date:new Date()
-}
-];
+const commenti = [];
 
 app.use( morgan('dev') );
 
@@ -50,8 +45,12 @@ app.get('/comment', function (req, res) {
 });
 
 app.post('/comment', function (req, res) {
-  console.log(req.body.title);
-  console.log(req.body.body);
+  const commento={
+    title:req.body.title,
+    body:req.body.body,
+    date:new Date()
+  };
+  commenti.push(commento);
   res.redirect('/');
 });
 
